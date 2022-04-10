@@ -1,12 +1,36 @@
 #for changing appearance of powershell 
-oh-my-posh --init --shell pwsh --config C:\Users\birat\AppData\Local\Programs\oh-my-posh\themes\birat.omp.json | Invoke-Expression
+Import-Module -Name oh-my-posh
+oh-my-posh --init --shell pwsh --config C:\Scripts\powershell\birat.omp.json | Invoke-Expression
+
+#For Icons
 Import-Module -Name Terminal-Icons
+
+#For autocompletion
+Set-PSReadLineOption -EditMode Emacs
+Set-PSReadLineOption -BellStyle None
+Set-PSReadLineKeyHandler -Chord 'Ctrl+d' -Function DeleteChar
+Set-PSReadLineOption -PredictionSource History
+Set-PSReadLineOption -PredictionViewStyle ListView
+
+#Remove Duplicates
+Set-PSReadLineOption –HistoryNoDuplicates:$True
 
 Set-Alias -Name grep -Value Select-String
 Set-Alias -Name ifconfig -Value ipconfig
 Set-Alias -Name touch -Value New-Item
-#1..5|foreach {new-item -path C:\temp\$_.txt}
-#Production
+Set-Alias -Name vim -Value nvim
+function wrkspc {code C:\Scripts\VSCode-docker-workspace.code-workspace}
+function update-remove {& 'C:\Softwares\Update&Remove.ps1'}
+function lsr {Get-ChildItem -Recurse}
+
+#Utilities
+function which ($command) {
+	Get-Command -Name $command -ErrorAction SilentlyContinue |
+		Select-Object -ExpandProperty Path -ErrorAction SilentlyContinue
+	}
+#Allias for Official Production environment
+function vianet {fping 110.44.116.20 110.44.116.18 -c}
+function subishu {fping 182.93.68.2 182.93.68.4 -c}
 function nots {fping 182.93.68.2 110.44.116.18 -n 4 -b}
 function website {fping 110.44.116.20 182.93.68.4 -n 4 -b}
 function notsweb {fping 182.93.68.2 110.44.116.18 182.93.68.4 110.44.116.20 -c -b}
