@@ -15,21 +15,27 @@ Set-PSReadLineOption -PredictionViewStyle ListView
 #Remove Duplicates
 Set-PSReadLineOption –HistoryNoDuplicates:$True
 
+#Alias for normal use
 Set-Alias -Name grep -Value Select-String
 Set-Alias -Name ifconfig -Value ipconfig
 Set-Alias -Name touch -Value New-Item
 Set-Alias -Name vim -Value nvim
+Set-Alias -Name ll -Value Get-ChildItem
 function wrkspc {code C:\Scripts\VSCode-docker-workspace.code-workspace}
 function update-remove {& 'C:\Softwares\Update&Remove.ps1'}
 function lsr {Get-ChildItem -Recurse}
-
+function git-log {Get-Content C:\Logs\script_logs.txt}
 #Utilities
 function which ($command) {
 	Get-Command -Name $command -ErrorAction SilentlyContinue |
 		Select-Object -ExpandProperty Path -ErrorAction SilentlyContinue
 	}
+Set-Alias -Name file -Value explorer.exe
+#function file ($location) {
+#	explorer.exe	
+#	}
 #Allias for Official Production environment
-function vianet {fping 110.44.116.20 110.44.116.18 -c}
+function vianet {fping 110.44.116.20 110.44.116.18 -c |foreach {"{0} - {1}" -f (Get-Date),$_}}
 function subishu {fping 182.93.68.2 182.93.68.4 -c}
 function nots {fping 182.93.68.2 110.44.116.18 -n 4 -b}
 function website {fping 110.44.116.20 182.93.68.4 -n 4 -b}
