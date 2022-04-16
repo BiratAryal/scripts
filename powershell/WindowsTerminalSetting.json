@@ -1,38 +1,41 @@
 {
+    "$help": "https://aka.ms/terminal-documentation",
     "$schema": "https://aka.ms/terminal-profiles-schema",
     "actions": 
     [
         {
-            "command": "unbound",
-            "keys": "ctrl+shift+w"
+            "command": 
+            {
+                "action": "newTab"
+            },
+            "keys": "ctrl+t"
+        },
+        {
+            "command": 
+            {
+                "action": "splitPane",
+                "split": "right"
+            }
+        },
+        {
+            "command": "paste",
+            "keys": "ctrl+v"
         },
         {
             "command": "unbound",
-            "keys": "ctrl+shift+t"
+            "keys": "ctrl+shift+v"
         },
         {
             "command": "unbound",
-            "keys": "ctrl+shift+4"
+            "keys": "shift+insert"
         },
         {
             "command": "unbound",
-            "keys": "alt+shift+plus"
+            "keys": "ctrl+right"
         },
         {
             "command": "unbound",
-            "keys": "alt+shift+minus"
-        },
-        {
-            "command": "unbound",
-            "keys": "ctrl+alt+right"
-        },
-        {
-            "command": "unbound",
-            "keys": "ctrl+shift+5"
-        },
-        {
-            "command": "unbound",
-            "keys": "ctrl+shift+3"
+            "keys": "alt+f4"
         },
         {
             "command": 
@@ -49,25 +52,6 @@
         {
             "command": 
             {
-                "action": "newTab"
-            },
-            "keys": "ctrl+t"
-        },
-        {
-            "command": 
-            {
-                "action": "splitPane",
-                "split": "horizontal"
-            },
-            "keys": "ctrl+alt+down"
-        },
-        {
-            "command": "paste",
-            "keys": "ctrl+v"
-        },
-        {
-            "command": 
-            {
                 "action": "splitPane",
                 "split": "auto",
                 "splitMode": "duplicate"
@@ -75,121 +59,48 @@
             "keys": "alt+shift+d"
         },
         {
+            "command": 
+            {
+                "action": "closeTab"
+            }
+        },
+        {
             "command": "closePane",
             "keys": "ctrl+w"
         },
         {
-            "command": 
-            {
-                "action": "newTab",
-                "index": 3
-            },
-            "keys": "ctrl+s"
-        },
-        {
-            "command": 
-            {
-                "action": "splitPane",
-                "split": "vertical"
-            },
-            "keys": "ctrl+alt+up"
-        },
-        {
-            "command": 
-            {
-                "action": "newTab",
-                "index": 4
-            },
-            "keys": "ctrl+i"
-        },
-        {
-            "command": 
-            {
-                "action": "newTab",
-                "index": 2
-            },
-            "keys": "ctrl+m"
+            "command": "closeWindow",
+            "keys": "ctrl+shift+w"
         }
     ],
     "copyFormatting": "none",
     "copyOnSelect": false,
     "defaultProfile": "{574e775e-4f2a-5b96-ac1e-a2962a402336}",
+    "focusFollowMouse": true,
     "profiles": 
     {
         "defaults": 
         {
+            "colorScheme": "Campbell",
             "font": 
             {
-                "face": "JetBrainsMonoMedium Nerd Font Mono"
+                "face": "Hack NF"
             },
-            "icon": "ms-appx:///ProfileIcons/pwsh.png",
-            "startingDirectory": null
+            "opacity": 70,
+            "useAcrylic": true
+            // "acrylicOpacity": 12
         },
         "list": 
         [
             {
-                "font": 
-                {
-                    "face": "JetBrainsMonoMedium Nerd Font Mono",
-                    "size": 11
-                },
-                "guid": "{574e775e-4f2a-5b96-ac1e-a2962a402336}",
-                "hidden": false,
-                "name": "PowerShell",
-                "source": "Windows.Terminal.PowershellCore",
-                "startingDirectory": "D:\\"
-            },
-            {
                 "altGrAliasing": true,
                 "antialiasingMode": "grayscale",
-                "closeOnExit": "graceful",
-                "colorScheme": "Campbell",
-                "commandline": "ssh turboscript@192.168.179.127",
-                "cursorShape": "bar",
-                "font": 
-                {
-                    "face": "Cascadia Mono",
-                    "size": 12
-                },
-                "guid": "{c4b76b9c-be05-46cb-9c8b-ca8e716bccdd}",
-                "historySize": 9001,
-                "icon": "D:\\windows-Terminal\\icons\\debian.png",
-                "name": "Kali",
-                "padding": "8, 8, 8, 8",
-                "snapOnInput": true,
-                "startingDirectory": "%USERPROFILE%",
-                "useAcrylic": false
-            },
-            {
-                "altGrAliasing": true,
-                "antialiasingMode": "grayscale",
-                "closeOnExit": "graceful",
-                "colorScheme": "Campbell",
-                "commandline": "ssh turboscript@192.168.179.128",
-                "cursorShape": "bar",
-                "font": 
-                {
-                    "face": "Cascadia Mono",
-                    "size": 12
-                },
-                "guid": "{c4b76b9c-be05-46cb-9c8b-ca8e716bf127}",
-                "historySize": 9001,
-                "icon": "D:\\windows-Terminal\\icons\\linux.png",
-                "name": "CentOS Main",
-                "padding": "8, 8, 8, 8",
-                "snapOnInput": true,
-                "startingDirectory": "%USERPROFILE%",
-                "useAcrylic": false
-            },
-            {
-                "altGrAliasing": true,
-                "antialiasingMode": "grayscale",
-                "backgroundImage": "D:\\windows-Terminal\\wallpapers\\docker.webp",
+                "backgroundImage": "C:\\Softwares\\windows-Terminal\\wallpapers\\docker.webp",
                 "backgroundImageAlignment": "bottomRight",
                 "backgroundImageOpacity": 0.29999999999999999,
                 "closeOnExit": "graceful",
                 "colorScheme": "Campbell",
-                "commandline": "ssh turboscript@192.168.179.129",
+                "commandline": "ssh turboscript@192.168.50.128",
                 "cursorShape": "bar",
                 "font": 
                 {
@@ -198,23 +109,24 @@
                 },
                 "guid": "{c4b76b9c-be05-46cb-9c8b-ca8e716b4444}",
                 "historySize": 9001,
-                "icon": "D:\\windows-Terminal\\icons\\docker-container.png",
-                "name": "CentOS Cli",
+                "icon": "C:\\Softwares\\windows-Terminal\\icons\\docker-container.png",
+                "name": "CentOS Minimum",
                 "padding": "8, 8, 8, 8",
                 "snapOnInput": true,
                 "startingDirectory": "%USERPROFILE%",
-                "useAcrylic": false
+                "tabColor": "#FF0259",
+                "tabTitle": "Docker Test",
+                "useAcrylic": true
             },
-            
             {
                 "altGrAliasing": true,
                 "antialiasingMode": "grayscale",
-                "backgroundImage": "D:\\windows-Terminal\\wallpapers\\bash.jpg",
+                "backgroundImage": "C:\\Softwares\\windows-Terminal\\wallpapers\\bash.jpg",
                 "backgroundImageAlignment": "bottomRight",
                 "backgroundImageOpacity": 0.20000000000000001,
                 "closeOnExit": "graceful",
                 "colorScheme": "Vintage",
-                "commandline": "ssh root@192.168.179.130",
+                "commandline": "ssh root@192.168.50.129",
                 "cursorShape": "underscore",
                 "font": 
                 {
@@ -223,59 +135,37 @@
                 },
                 "guid": "{c4b76b9c-be05-46cb-9c8b-ca8e716b4433}",
                 "historySize": 9001,
-                "icon": "D:\\windows-Terminal\\icons\\centos-8.png",
+                "icon": "C:\\Softwares\\windows-Terminal\\icons\\centos-8.png",
                 "name": "Installation_test",
                 "padding": "8, 8, 8, 8",
                 "snapOnInput": true,
                 "startingDirectory": "%USERPROFILE%",
-                "useAcrylic": false
+                "tabColor": "#20FF07",
+                "tabTitle": "Script Check",
+                "useAcrylic": true
             },
             {
-                "altGrAliasing": true,
-                "antialiasingMode": "grayscale",
-                "backgroundImage": "D:\\windows-Terminal\\wallpapers\\swarm.png",
-                "backgroundImageAlignment": "bottomRight",
-                "backgroundImageOpacity": 0.29999999999999999,
-                "closeOnExit": "graceful",
-                "colorScheme": "Campbell",
-                "commandline": "ssh root@192.168.179.131",
-                "cursorShape": "bar",
+                "backgroundImage": "C:\\Softwares\\windows-Terminal\\wallpapers\\powershell.png",
+                "backgroundImageOpacity": 0.20000000000000001,
                 "font": 
                 {
-                    "face": "Cascadia Mono",
-                    "size": 12
-                },
-                "guid": "{c4b76b9c-be05-46cb-9c8b-ca8e716b4443}",
-                "historySize": 9001,
-                "icon": "D:\\windows-Terminal\\icons\\docker-container.png",
-                "name": "Swarm 1",
-                "padding": "8, 8, 8, 8",
-                "snapOnInput": true,
-                "startingDirectory": "%USERPROFILE%",
-                "useAcrylic": false
-            },
-            {
-                "commandline": "powershell.exe",
-                "font": 
-                {
-                    "face": "JetBrainsMonoMedium NF",
                     "size": 10
                 },
+                "guid": "{574e775e-4f2a-5b96-ac1e-a2962a402336}",
+                "hidden": false,
+                "name": "PowerShell",
+                "source": "Windows.Terminal.PowershellCore",
+                "tabColor": "#1AE3FF",
+                "tabTitle": "Powershell"
+            },
+            {
                 "guid": "{61c54bbd-c2c6-5271-96e7-009a87ff44bf}",
                 "hidden": true,
-                "icon": "D:\\windows-Terminal\\icons\\powershell.png",
                 "name": "Windows PowerShell"
             },
             {
-                "commandline": "powershell_ise.exe",
-                "guid": "{61c54bbd-c2c6-5271-96e7-009a87ff44aa}",
-                "hidden": false,
-                "name": "ISE"
-            },
-            {
-                "commandline": "cmd.exe",
                 "guid": "{0caa0dad-35be-5f56-a8ff-afceeeaa6101}",
-                "hidden": false,
+                "hidden": true,
                 "name": "Command Prompt"
             }
         ]
@@ -467,29 +357,6 @@
             "yellow": "#C4A000"
         },
         {
-            "background": "#1B1D1E",
-            "black": "#1B1D1E",
-            "blue": "#2525F5",
-            "brightBlack": "#505354",
-            "brightBlue": "#506B95",
-            "brightCyan": "#4085A6",
-            "brightGreen": "#48FF77",
-            "brightPurple": "#72589D",
-            "brightRed": "#8DFF2A",
-            "brightWhite": "#E5E6E1",
-            "brightYellow": "#3AFE16",
-            "cursorColor": "#16B61B",
-            "cyan": "#378CA9",
-            "foreground": "#B5B5B5",
-            "green": "#13CE30",
-            "name": "The Hulk",
-            "purple": "#641F74",
-            "red": "#269D1B",
-            "selectionBackground": "#4D504C",
-            "white": "#D9D8D1",
-            "yellow": "#63E457"
-        },
-        {
             "background": "#000000",
             "black": "#000000",
             "blue": "#000080",
@@ -512,5 +379,6 @@
             "white": "#C0C0C0",
             "yellow": "#808000"
         }
-    ]
+    ],
+    "useAcrylicInTabRow": true
 }
