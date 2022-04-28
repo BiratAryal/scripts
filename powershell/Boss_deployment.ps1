@@ -10,24 +10,24 @@
 #                                    Index:
 # 1. Archive
 #    1.1 Create Archive of the publish file ----
-#    1.2 Extract Archive -----
-# 2. IIS ----
-#    2.1 Stop Site ----
+#    1.2 Extract Archive -------
+# 2. IIS ------
+#    2.1 Stop Site ------
 #    2.2 Take port number
-# 3. Text add/change inside config file ----
-#    3.1 Change version info -----
-#    3.2 Insert servername, databasename, sftpdetails ----
-# 4. Download files from github ----
+# 3. Text add/change inside config file ------
+#    3.1 Change version info -------
+#    3.2 Insert servername, databasename, sftpdetails ------
+# 4. Download files from github ------
 # 5. Take backup of sql server
 # 6. Run Query 
 #    5.1 All version query in sequential order
-#    5.2 Create Database ------
+#    5.2 Create Database --------
 # 7. Application Pool creation -----
 # 8. Full Permission to the directory for 2 users -----
 # 9. Create Website ----
 #    9.1 Create website based on application pool -----
 #    9.2 Asssign port number -----
-# 10. Install files silently -------
+# 10. Install files silently ---------
 #=============================================================================================================================
 #=============================================================================================================================
 #                                   Stop and start IIS website
