@@ -1,0 +1,7 @@
+# L0 backup
+15 21 * * * 6
+# L1 backup
+15 21 * * * 0 - 5 
+# delete old files
+45 23 * * * 6 /usr/bin/find /u05/rman_backup/DB_* -mtime + 16 -exec rm -rf { } \;
+
