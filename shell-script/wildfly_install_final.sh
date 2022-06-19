@@ -32,7 +32,7 @@ USER_NAME=`cut -d: -f1 /etc/passwd|grep $PACKAGE|xargs`
 # --------------------------------------------------------------------------------------------------------
 # *********************** function declaration start *****************************************************
 
-complete_install(){
+complete_install () {
         # If tarball file is present or download is complete, unpack the tar.gz file and move it to the /opt directory:
         tar xf $DOWNLOAD_DIR/$PACKAGE-$WILDFLY_VERSION.tar.gz -C $INSTALL_DIR;
         # Next, create a symbolic link wildfly that will point to the WildFly installation directory:
@@ -102,7 +102,7 @@ complete_install(){
         bash  $INSTALL_DIR$PACKAGE/bin/add-user.sh
 }
 
-tar_not_present(){ 
+tar_not_present () { 
         # ONLINE_MD5 and LOCAL_MD5 is declared only on this scope as it is not called globally. 
         # created MD5 to check download integrity one of online file and then another of file present in our local machine.
         ONLINE_MD5=`md5sum <(wget https://download.jboss.org/$PACKAGE/$WILDFLY_VERSION/wildfly-$WILDFLY_VERSION.tar.gz -O- 2>/dev/null)|awk '{print $1}'|xargs`
@@ -123,20 +123,20 @@ tar_not_present(){
         done
 }
 
-group_check(){
-        if [ "$GROUPNAME" == "$PACKAGE" ]; then
-                echo -e "Group exists proceeding with this group $PACKAGE \n"
-        else
-                groupadd -r $PACKAGE
-                if [ "$USER_NAME" == "$PACKAGE" ]; then
-                        echo -e "*********User exists proceeding with this user $PACKAGE********* \n"
-                else 
-                # created user with username wildfly -g is used to define group name and -d is used to define 
-                # the home directory -s to give shell to the user.
-                        useradd -r -g $PACKAGE -d $INSTALL_DIR$PACKAGE -s /sbin/nologin $PACKAGE
-                fi
-        fi
-}
+# group_check(){
+#         if [ "$GROUPNAME" == "$PACKAGE" ]; then
+#                 echo -e "Group exists proceeding with this group $PACKAGE \n"
+#         else
+#                 groupadd -r $PACKAGE
+#                 if [ "$USER_NAME" == "$PACKAGE" ]; then
+#                         echo -e "*********User exists proceeding with this user $PACKAGE********* \n"
+#                 else 
+#                 # created user with username wildfly -g is used to define group name and -d is used to define 
+#                 # the home directory -s to give shell to the user.
+#                         useradd -r -g $PACKAGE -d $INSTALL_DIR$PACKAGE -s /sbin/nologin $PACKAGE
+#                 fi
+#         fi
+# }
 # ******************************* function declaration end *******************************************************
 # ----------------------------------------------------------------------------------------------------------------
 # ----------------------------------------------------------------------------------------------------------------
@@ -154,7 +154,8 @@ then
         # WildFly 9 requires Java SE 8 or later. Install the OpenJDK package.
         yum install java-1.8.0-openjdk-devel wget -y;
         # calling group and user check function
-        group_check
+        groupadd -r $PACKAGE
+        useradd -r -g $PACKAGE -d $INSTALL_DIR$PACKAGE -s /sbin/nologin $PACKAGE
         if [ -f "$DOWNLOAD_DIR/$PACKAGE-$WILDFLY_VERSION.tar.gz" ];then
             echo -e "\033[4;30;42m$PACKAGE-$WILDFLY_VERSION.tar.gz\033[0m \033[30;42mexists\033[0m proceeding with this tarball file\033[0m"
             complete_install
