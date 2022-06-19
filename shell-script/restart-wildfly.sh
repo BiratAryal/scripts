@@ -2,11 +2,13 @@
 # location="/opt/wildfly/standalone/log/server.log"
 stopwf(){
    systemctl stop wildfly
+   # ( tail -f -n0 /opt/wildfly/standalone/log/server.log & ) | grep -m 1 "stopped in"
    grep -m 1 "stopped in" <(tail -n 0 -f /opt/wildfly/standalone/log/server.log)
    rcs=$?;    
 }
 startwf(){
    systemctl start wildfly
+   # ( tail -f -n0 /opt/wildfly/standalone/log/server.log & ) | grep -m 1 "started in"
    grep -m 1 "stopped in" <(tail -n 0 -f /opt/wildfly/standalone/log/server.log)
    rcr=$?;
 }
