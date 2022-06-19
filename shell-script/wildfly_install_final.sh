@@ -84,6 +84,12 @@ complete_install () {
         sed -i '54 i \   \JDK_HEAP_DUMP_PATH=/tmp/jdk_mem_dump/' $INSTALL_DIR$PACKAGE/bin/$WILDFLY_MODE.conf
         # defining size of heap memory initial to max can use G, maxmetaspace should always be half of max_heap_size 
         sed -i '55 i \   \JAVA_OPTS="-Xms'$initial_heap_size'G -Xmx'$max_heap_size'G -XX:MetaspaceSize=256M -XX:MaxMetaspaceSize=1G -Djava.net.preferIPv4Stack=true -XX:NativeMemoryTracking=summary -Djboss.remoting.pooled-buffers=false -XX:+HeapDumpOnOutOfMemoryError -XX:HeapDumpPath=$JDK_HEAP_DUMP_PATH -XX:+UseStringDeduplication"' $INSTALL_DIR$PACKAGE/bin/$WILDFLY_MODE.conf
+        # Creating directory for storing log file
+        mkdir $INSTALL_DIR$PACKAGE/$WILDFLY_MODE/log
+        #creating server log file for logging
+        touch $INSTALL_DIR$PACKAGE/$WILDFLY_MODE/log/server.log
+        #changing ownership to wildfly:wildfly as wildfly user will write in this file
+        chmod -R $PACKAGE:$PACKAGE $INSTALL_DIR$PACKAGE/$WILDFLY_MODE/log
         # Start the WildFly service an enable it to be automatically started at boot time by running:
         systemctl start $PACKAGE;
         systemctl enable $PACKAGE;
