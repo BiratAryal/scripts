@@ -8,6 +8,7 @@ stopwf(){
    echo -e "\n*****************************Stopped Successfully $rcs ***************************************\n"    
 }
 startwf(){
+   clear;
    systemctl start wildfly
    sed '/started in/q' <(tailf -n 1 /opt/wildfly/standalone/log/server.log)
    rcr=$?;
