@@ -2,6 +2,7 @@
 # location="/opt/wildfly/standalone/log/server.log"
 stopwf(){
    systemctl stop wildfly
+   sleep 40s;
    sed '/stopped in/q' <(tailf -n 1 /opt/wildfly/standalone/log/server.log)
    rcs=$?;
    echo -e "\n*****************************Stopped Successfully $rcs ***************************************\n"    
