@@ -1,11 +1,3 @@
-groupadd -g 54321 oinstall
-groupadd -g 54322 dba
-groupadd -g 54323 oper
-groupadd -g 54324 backupdba
-groupadd -g 54325 dgdba
-groupadd -g 54326 kmdba
-groupadd -g 54327 racdba
-useradd -u 54321 -g oinstall -G dba,oper,backupdba,dgdba,kmdba,racdba oracle
-passwd oracle
-app setting .json
-new line number
+version https://git-lfs.github.com/spec/v1
+oid sha256:834495174c99865687ae9814209f81f0d828ec6405567f9d613315ea45ef4203
+size 309

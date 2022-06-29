@@ -1,0 +1,4 @@
+#! /bin/bash
+for PACKAGE in $(rpm -qa | grep kernel)
+	do echo "$PACKAGE was installed on $(date -d @$(rpm -q --qf "%{INSTALLTIME}\n" $PACKAGE))"
+done

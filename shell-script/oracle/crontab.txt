@@ -1,7 +1,3 @@
-# L0 backup
-15 21 * * * 6
-# L1 backup
-15 21 * * * 0 - 5 
-# delete old files
-45 23 * * * 6 /usr/bin/find /u05/rman_backup/DB_* -mtime + 16 -exec rm -rf { } \;
-
+version https://git-lfs.github.com/spec/v1
+oid sha256:3723ee19b0ff20d64cc180197f1892387289847be64d023f0966bf7c9e7381df
+size 166
