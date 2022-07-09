@@ -10,7 +10,7 @@ wget https://nginx.org/download/nginx-1.20.0.tar.gz && tar zxvf nginx-1.20.0.tar
 # • Download third party module from git:
 # got to home/tms directory then 
 mkdir -p /home/tms
-cd /home/tms/
+cd /
 git clone https://github.com/openresty/headers-more-nginx-module.git
 # • Download the NGINX dependencies source code and extract them:
 # NGINX depends on 3 libraries: PCRE, zlib and OpenSSL:
