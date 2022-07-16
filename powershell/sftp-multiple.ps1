@@ -84,3 +84,37 @@ catch [Exception]
     Write-Host ("Error: {0}" -f $_.Exception.Message)
     exit 1
 }
+
+
+C#
+using (Sftp client = new Sftp())
+{
+    // Set security settings.
+    client.Config.HostKeyAlgorithms = SecureShellHostKeyAlgorithm.RSA;
+    client.Config.KeyExchangeAlgorithms = SecureShellKeyExchangeAlgorithm.DiffieHellmanGroupExchangeSHA256;
+    // Enable compression
+    client.Config.EnableCompression = true;
+
+    // Connect to the server.
+    client.Connect(serverName);
+
+    // ...
+}
+VB.NET
+Using client As New Sftp()
+    ' Set security settings.
+    client.Config.HostKeyAlgorithms = SecureShellHostKeyAlgorithm.RSA
+    client.Config.KeyExchangeAlgorithms = SecureShellKeyExchangeAlgorithm.DiffieHellmanGroupExchangeSHA256
+    ' Enable compression
+    client.Config.EnableCompression = True
+
+    ' Connect to the server.
+    client.Connect(serverName)
+
+    ' ...
+End Using
+
+
+Set connection settings
+
+The Sftp.Config property has several useful connection options like EnableCompression, HostKeyAlgorithms, MacAlgorithms, etc. If needed, set those before connecting to a server.
